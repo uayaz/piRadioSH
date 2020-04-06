@@ -1,14 +1,15 @@
 #!/bin/bash
 echo lampp server starting
-#bu dosya otomatik olarak pi boarda enerji verilip çalıştırmak için
-#1- bu bash script /etc/init.d altına kopyalanmalı
-#2- script executable olmalı
-#3- her açılışta default çalışması için "sudo update-rc.d piRadio.py defaults" komutu girilmeli
+#this file for starting lampp server and .jar file at raspberry pi StartUp automatically
 
-#raspberyy password girilecek 
+#1- copy this file to  /etc/init.d
+#2- sure that is the file executable
+#3- for running as default while Raspberry Pi plug in run "sudo update-rc.d piRadio.py defaults" command
+
+#enter your password 
 echo "********" | sudo -S service apache2 restart
 sleep 1
-#runnable jar dosyası nerdeyse yolunu vermek gerekir.
+#define .jar file path 
 cd /opt/piRadio
 java -jar piRadio.jar 
 
